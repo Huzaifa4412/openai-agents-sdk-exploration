@@ -4,6 +4,8 @@ from agents import (
     GuardrailFunctionOutput,
     Runner,
     OpenAIChatCompletionsModel,
+    set_tracing_disabled,
+    enable_verbose_stdout_logging,
 )
 from openai import AsyncOpenAI
 from agents.exceptions import InputGuardrailTripwireTriggered
@@ -14,6 +16,9 @@ import os
 
 
 load_dotenv()
+
+enable_verbose_stdout_logging()
+set_tracing_disabled(True)
 
 gemini_api_key = os.getenv("GEMINI_API_KEY")
 if not gemini_api_key:

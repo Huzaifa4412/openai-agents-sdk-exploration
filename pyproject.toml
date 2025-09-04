@@ -10,4 +10,4 @@ dependencies = [
 ]
 
 [tool.uv.workspace]
-members = ["00_basic_config", "01_Runner_exploration", "01_Runner_exploration/02_quick_start", "03_context", "04_simple_chatbot", "05_output_types", "dynamic_instructions", "07_Life_cycle_event_hook", "04_simple_chatbot/chatbot-exploration", "guardrail"]
+members = ["00_basic_config", "01_Runner_exploration", "01_Runner_exploration/02_quick_start", "03_context", "04_simple_chatbot", "05_output_types", "dynamic_instructions", "07_Life_cycle_event_hook", "04_simple_chatbot/chatbot-exploration", "guardrail", "projects", "08_sessions", "00_default_agent", "09_multi-agent-system"]

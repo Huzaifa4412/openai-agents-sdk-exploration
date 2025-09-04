@@ -63,7 +63,7 @@ async def async_demo():
 
     task1 = Runner.run(coder_agent, "Write a function to sort an array using python.")
     task2 = Runner.run(maths_agent, "Solve for x: 2x + 3 = 7")
-    task3 = Runner.run(history_agent, "Who was the first president of the Pakistan?")
+    task3 = Runner.run(history_agent, "Who was the first president of the Pakistan?")   
 
     results = await asyncio.gather(task1, task2, task3)
 

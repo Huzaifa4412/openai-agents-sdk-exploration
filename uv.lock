@@ -10,9 +10,12 @@ members = [
     "04-simple-chatbot",
     "05-output-types",
     "07-life-cycle-event-hook",
+    "08-sessions",
+    "09-multi-agent-system",
     "chatbot-exploration",
     "guardrail",
     "open-ai-skd-exploration",
+    "projects",
 ]
 
 [[package]]
@@ -76,6 +79,36 @@ source = { virtual = "05_output_types" }
 name = "07-life-cycle-event-hook"
 version = "0.1.0"
 source = { virtual = "07_Life_cycle_event_hook" }
+
+[[package]]
+name = "08-sessions"
+version = "0.1.0"
+source = { virtual = "08_sessions" }
+dependencies = [
+    { name = "dotenv" },
+    { name = "openai-agents" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "dotenv", specifier = ">=0.9.9" },
+    { name = "openai-agents", specifier = ">=0.2.9" },
+]
+
+[[package]]
+name = "09-multi-agent-system"
+version = "0.1.0"
+source = { virtual = "09_multi-agent-system" }
+dependencies = [
+    { name = "dotenv" },
+    { name = "openai-agents" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "dotenv", specifier = ">=0.9.9" },
+    { name = "openai-agents", specifier = ">=0.2.9" },
+]
 
 [[package]]
 name = "annotated-types"
@@ -413,6 +446,11 @@ sdist = { url = "https://files.pythonhosted.org/packages/c3/03/45a1022ae6daa7f02
 wheels = [
     { url = "https://files.pythonhosted.org/packages/dc/bf/8a8dd24206763214f364b272371486247744a64ef554e952d92444e6ce14/openai_agents-0.2.9-py3-none-any.whl", hash = "sha256:cca016c28e39b24b17cae232c2bc16769e48dbfc7cbe006775d10822c441f6e4", size = 175106 },
 ]
+
+[[package]]
+name = "projects"
+version = "0.1.0"
+source = { virtual = "projects" }
 
 [[package]]
 name = "pydantic"
