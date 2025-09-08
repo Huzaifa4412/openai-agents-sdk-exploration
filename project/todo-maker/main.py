@@ -1,21 +1,13 @@
 # Import necessary modules
-from agents import (
-    Agent,
-    OpenAIChatCompletionsModel,
-    set_tracing_disabled,
-    SQLiteSession,
-)
+from agents import Agent, OpenAIChatCompletionsModel, set_tracing_disabled
 from agents.run import Runner
 from openai import AsyncOpenAI
 from dotenv import load_dotenv
+from tools import add_task, list_tasks, complete_task
 import os
 import asyncio
 
 set_tracing_disabled(True)
-
-session = SQLiteSession("gemini.db")
-
-
 # Load environment variables from .env file
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
@@ -34,21 +26,27 @@ gemini_model = OpenAIChatCompletionsModel(
 )
 
 
+# def add_task(task):
+#     pass
+
+
 # Main async function to run the agent
 async def main():
-    agent = Agent(
-        name="Assistant",
-        instructions="Simple Ai assistant",
-        model=gemini_model,
-    )
+    while True:
+        print("\n--- TODO APP ---")
+        print("\n Press")
+        print("1. Add a task")
+        print("2. Show all tasks")
+        print("3. Complete a task")
+        print("4. Delete a task")
+        print("5. Update a task")
+        print("\n Press 0 to exit or type exit for exit")
 
-    # Run the agent with a sample prompt
-    result = await Runner.run(agent, "What is the capital of France?", session=session)
-    print(result.final_output)
-
-    # get all items to a session
-    items = await session.get_items()
-    print(items)
+        choice = input("\n Enter your choice: ")
+        if choice == "0" or choice.lower() == "exit":
+            break
+        elif choice == "1":
+            add_task()
 
 
 # Entry point for the script

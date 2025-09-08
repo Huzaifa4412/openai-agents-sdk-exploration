@@ -25,12 +25,37 @@ gemini_model = OpenAIChatCompletionsModel(
 )
 
 
+booking_agent = Agent(
+    name="Booking Agent",
+    instructions="You are a helpful travel booking assistant. Help users book flights and hotels.",
+    model=gemini_model,
+)
+refund_agent = Agent(
+    name="Refund Agent",
+    instructions="You are a customer service agent specializing in processing refunds. Assist users with their refund requests.",
+    model=gemini_model,
+)
+
+
 # Main async function to run the agent
 async def main():
     agent = Agent(
-        name="Assistant",
-        instructions="Simple Ai assistant",
+        name="Customer-facing agent",
+        instructions=(
+            "Handle all direct user communication. "
+            "Call the relevant tools when specialized expertise is needed."
+        ),
         model=gemini_model,
+        tools=[
+            booking_agent.as_tool(
+                tool_name="Booking_expert",
+                tool_description="Expert in booking flights and hotels",
+            ),
+            refund_agent.as_tool(
+                tool_name="Refund_expert",
+                tool_description="Expert in processing refunds",
+            ),
+        ],
     )
 
     # Run the agent with a sample prompt
